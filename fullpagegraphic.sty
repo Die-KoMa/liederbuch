@@ -1,0 +1,33 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fullpagegraphic}
+\RequirePackage{graphicx}
+\RequirePackage{textpos}
+\RequirePackage{ifthen}
+\newcommand{\includegraphicsfullpage}[2][null]{%
+\newpage
+\bgroup
+\thispagestyle{empty}%
+\hoffset=-1in
+\voffset=-1in
+\addtolength{\voffset}{-3.7mm}
+\addtolength{\hoffset}{.4mm}
+\topmargin=0pt
+\headheight=0pt
+\headsep=0pt
+\hsize=\paperwidth
+\@colht\paperheight
+\evensidemargin=0pt
+\oddsidemargin=0pt
+\marginparsep=0pt
+\marginparwidth=0pt
+\parskip=0pt
+\parindent=0pt
+\begin{textblock*}{297mm}(0mm,0mm)%
+    \ifthenelse{\equal{#1}{null}}{
+         \includegraphics[width=\paperwidth, height=\paperheight]{#2}% 
+    }{\includegraphics[#1]{#2}% 
+    }
+  \end{textblock*}%
+\newpage
+\egroup}
+\endinput

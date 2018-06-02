@@ -1,0 +1,69 @@
+\usepackage{fixltx2e}
+\usepackage[ngerman]{babel}
+\usepackage[breakall,fit]{truncate} % Cut long headers
+%\usepackage{color}
+%\usepackage{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{marvosym}
+\usepackage[right]{eurosym}
+\usepackage{amsmath}
+\usepackage[absolute]{textpos}
+%\usepackage{memhfixc}
+\usepackage{wasysym}
+\usepackage{eso-pic} % wasserzeichen
+\usepackage{ellipsis}
+\usepackage[pdftitle={Das Liederbuch der KoMa},pdfauthor={Konferenz der deutschsprachigen Mathematikfachschaften},final,pdfborder="0 0 0",pdfpagelayout=TwoColumnRight]{hyperref}
+%\usepackage[squaren]{SIunits}
+\usepackage{graphicx}
+\usepackage{fullpagegraphic}
+%\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage[T1]{fontenc}
+%\usepackage{blindtext}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage[labelformat=empty,justification=centering,textfont=normalsize]{subfig}
+\usepackage{xspace}
+\usepackage[a5paper,bindingoffset=10mm,twoside,vmargin=2.5cm,]{geometry}
+\parindent=0pt
+
+\usepackage{tocstyle} %%%
+\usetocstyle{KOMAlike}
+\settocfeature{leaders}{\hfill}% 
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{1}
+
+\hypersetup{
+colorlinks,%
+citecolor=black,%
+filecolor=black,%
+linkcolor=black,%
+urlcolor=black
+} 
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{} % Aufraeumen
+\fancyhead[RO,LE]{\sffamily \small Seite \thepage}
+\fancyhead[LO,RE]{\sffamily \small \truncate{0.6\textwidth}{\nouppercase\leftmark}}
+\fancyfoot{} % Aufraeumen
+
+
+
+\newcommand{\kifak}{\framebox{\tiny \textsc{KIF}}\mbox{\hspace{0.4cm}}}
+\newcommand{\komaak}{\framebox{\tiny \textsc{KoMa}}\mbox{\hspace{0.4cm}}}
+
+\newcommand{\supkif}{$^{\textsc{\tiny KIF}}$\xspace}
+\newcommand{\supkoma}{$^{\textsc{\tiny KoMa}}$\xspace}
+
+
+
+% Text muss auch mal GROSS sein!
+\newcommand{\HUGE}{\fontsize{35.83}{43.00}\selectfont}
+\newcommand{\titan}{\fontsize{43.00}{51.60}\selectfont}
+\newcommand{\Titan}{\fontsize{51.60}{61.92}\selectfont}
+\newcommand{\TITAN}{\fontsize{61.92}{74.30}\selectfont}
+\newcommand{\TITELTEXT}{\fontsize{100}{100.30}\selectfont}
+\newcommand{\ALL}[1]{\fontsize{#1}{1.2#1}\selectfont}

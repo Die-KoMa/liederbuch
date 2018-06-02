@@ -1,0 +1,186 @@
+\documentclass[twoside]{report}
+
+\input{macros}
+
+\usepackage{color}
+\usepackage{amssymb}                 % ... und Symbole
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{minitoc}                 % mehrere inhaltsverzeichnisse..
+%\usepackage{ifthen}
+
+\setcounter{secnumdepth}{-1}
+%\setcounter{tocdepth}{1}     % tiefe des globalen toc
+%\setcounter{minitocdepth}{3} % tiefe des lokalen toc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\tolerance=2000
+%\setlength{\emergencystretch}{20pt}
+
+%\flushbottom            % für oneside: letzte Zeilen auf gleiche Höhe anpassen (bei twoside automatisch)
+
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1.5ex}
+
+%\setlength{\hoffset}{-.5in}
+%\setlength{\voffset}{-1cm}
+
+%\setlength{\unitlength}{1cm}    %Einheitslänge = 1cm (für Bilder)
+
+\usetocstyle{standard}
+\newcommand\noop[1]{}
+\settocfeature[toc][0]{pagenumberbox}{\noop}
+
+%%%% KOPF- & FUSSZEILEN
+\fancypagestyle{plain}{ % "plain" damit es auch im TOC übernommen wird
+  \fancyhead{} % Aufraeumen
+  \fancyhead[ER]{\scshape \footnotesize \uppercase{Das Liederbuch}}
+  \fancyhead[OL]{\scshape \footnotesize \uppercase{der KoMa}}
+  \fancyhead[OR,EL]{\thepage}
+  \fancyfoot{} % Aufraeumen
+  \fancyfoot[OR]{\footnotesize http://www.die-koma.org}
+  \fancyfoot[EL]{\footnotesize Stand: \Stand}
+}
+\fancypagestyle{pretoc}{
+  \fancyhead{} % Aufraeumen
+  \fancyhead[ER]{\scshape \footnotesize \uppercase{Das Liederbuch}}
+  \fancyhead[OL]{\scshape \footnotesize \uppercase{der KoMa}}
+  \fancyfoot{} % Aufraeumen
+  \fancyfoot[OR]{\footnotesize http://www.die-koma.org}
+  \fancyfoot[EL]{\footnotesize Stand: \Stand}
+}
+
+% Syntax: \lied{Liedtitel}
+\newcommand{\lied}[3]{
+\newpage
+\section*{#1}
+\addcontentsline{toc}{section}{#1\\(#2)}
+{\vspace*{-2ex} \textit{Melodie: #2} \hspace*{1em} (#3) \vspace*{1ex} }
+}
+
+\newcommand{\strophe}[1]{
+\begin{verse}
+#1
+\end{verse}
+}
+
+\newcommand{\refrain}[1]{
+\begin{verse}
+\textsl{Refrain:}\\
+#1
+\end{verse}
+}
+
+
+\title{Das Liederbuch der\\Konferenz der deutschsprachigen Mathematikfachschaften}
+\author{Gedichtet vom AK Pella\\auf diversen KoMata}
+\newcommand{\Stand}{28. Juli 2015}
+\date{Stand: \Stand}
+
+\begin{document}
+\pagenumbering{roman}
+\pagestyle{empty}
+\newpage
+\includegraphicsfullpage{titelseite}
+~
+\vfill
+\hfill
+{\sffamily\LARGE\bfseries\textcolor{white}{\Stand}}
+\hspace*{-15mm}
+\vspace*{-14mm}
+
+\pagestyle{pretoc}
+\cleardoublepage
+\pagestyle{plain}
+\setcounter{page}{1}
+%\addtocontents{toc}{\protect\thispagestyle{fancy}}
+
+%\maketitle
+
+\tableofcontents
+
+
+\cleardoublepage
+\pagenumbering{arabic}
+\phantomsection
+\addcontentsline{toc}{chapter}{Analysis}
+\input{lieder/probiers_doch_mal_mit_stetigkeit}
+\input{lieder/unter_der_kurve}
+\input{lieder/skandal_im_r_hoch_n}
+\input{lieder/hier_kommt_euler}
+\input{lieder/transzendent}
+\input{lieder/epsilon}
+\input{lieder/bin_in_r}
+\input{lieder/analysis_kennt_auch_keine_loesung}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Algebra, Topologie und Geometrie}
+\input{lieder/die_konvexe_huelle}
+\input{lieder/durch_die_moduln}
+\input{lieder/freiheit}
+\input{lieder/topologen_auf_dem_moebiusband}
+\input{lieder/wir_rechnen_modulo}
+\input{lieder/mein_kleiner_gruener_vektor}
+\input{lieder/moebius_theme}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Numerik und Stochastik}
+\input{lieder/die_binomialverteilung_maja}
+\input{lieder/habe_hier_ein_problem}
+\input{lieder/ich_will_rechnen}
+%\input{lieder/numeriker}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Unileben}
+\input{lieder/die_antwort_weiss_ganz_allein_der_prof}
+\input{lieder/zehn_kleine_erstsemester}
+\input{lieder/die_intermathionale}
+\input{lieder/was_sollen_wir_rechnen}
+\input{lieder/rechnen_rechnen_rechnen}
+\input{lieder/verdammt_ich_loes_das}
+\input{lieder/unser_prof}
+\input{lieder/der_prof_hat_angefangen}
+\input{lieder/fachschaftsraum}
+\input{lieder/was_machen_wir_mit_den_erstsemestern}
+\input{lieder/fachschaftsleut}
+\input{lieder/suizidale_gedankengaenge_in_pi-moll}
+\input{lieder/tausend_und_ein_beweis}
+\input{lieder/wo_ist_der_scheiss-beweis}
+\input{lieder/schlaf_ersti_schlaf}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Ringvorlesung}
+\input{lieder/aequivalent}
+\input{lieder/die_mathematik_hat_festgestellt}
+\input{lieder/wir_habens_nicht_bewiesen}
+\input{lieder/meine_art_saetze_zu_zeigen}
+\input{lieder/summer_dreamin}
+\input{lieder/zahlen}
+\input{lieder/53_73_19_2003}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{KoMa}
+\input{lieder/koma-land}
+\input{lieder/ich_will_zurueck}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Weihnachten}
+\input{lieder/o_du_integral}
+\input{lieder/oh_mein_raum}
+\input{lieder/morgen_ersties_wirds_was_geben}
+\input{lieder/last_lecture}
+
+\newpage
+~
+\cleardoublepage
+\pagestyle{empty}
+\thispagestyle{plain}
+~
+\cleardoublepage
+\end{document}
