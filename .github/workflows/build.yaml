@@ -1,0 +1,27 @@
+name: "Build Berufungshandbuch"
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: "Build the Berufungshandbuch PDF"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v9
+        with:
+          nix-installer-tag: v0.15.1
+      - uses: DeterminateSystems/magic-nix-cache-action@v3
+      - env:
+          BRANCH_NAME_OR_REF: ${{ github.head_ref || github.ref }}
+        run: echo "name=BRANCH_NAME::${BRANCH_NAME_OR_REF#refs/heads/}" >> $GITHUB_ENV
+      - run: echo "name=PR_NUMBER::$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")" >> $GITHUB_ENV
+      - run: nix --print-build-logs build .#liederbuch -o liederbuch.pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: liederbuch.pdf

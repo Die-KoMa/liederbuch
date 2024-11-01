@@ -233,3 +233,8 @@ TSWLatexianTemp*
 # End of https://www.gitignore.io/api/latex
 /liederbuch.pdf
 /titelseite.pdf
+*~
+#*#
+
+/auto/
+/result
